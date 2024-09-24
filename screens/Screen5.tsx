@@ -1,10 +1,39 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { supabase } from './supabaseClient';
 
 const Screen5 = () => {
+  const [userId, setUserId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data: { user }, error } = await supabase.auth.getUser();
+
+      if (error) {
+        console.error('Error fetching user:', error);
+      } else {
+        setUserId(user?.id || null); // Set user ID or null if not available
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+  };
+
+  
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Screen 5</Text>
+      <Button title="Logout" onPress={handleLogout} />
+      <View>
+      <Text>{userId ? `User ID: ${userId}` : 'No user is logged in'}</Text>
+    </View>
     </View>
   );
 };
