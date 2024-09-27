@@ -43,7 +43,7 @@ const MainAppStack = () => (
           case 'Add Trip':
             iconName = 'settings';
             break;
-          case 'Activities':
+          case 'Profile':
             iconName = 'person';
             break;
           case 'History':
