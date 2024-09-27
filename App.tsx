@@ -3,11 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
-import Screen1 from './screens/Screen1'; // Home
-import Screen2 from './screens/Screen2'; // Checklist
-import Screen3 from './screens/Screen3'; // Add Trip
-import Screen4 from './screens/Screen4'; // Activities
-import Screen5 from './screens/Screen5'; // History
+import Home from './screens/Home'; // Home
+import ChecklistScreen from './screens/ChecklistScreen'; // Checklist
+import CompleteProfile from './screens/CompleteProfile'; // Add Trip
+import ProfileScreen from './screens/ProfileScreen'; // Activities
+import HistoryScreen from './screens/HistoryScreen'; // History
 import LoginScreen from './screens/LoginScreen'; // Login
 import SignUpScreen from './screens/SignUpScreen'; // Sign Up
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen'; // Forgot Password
@@ -57,11 +57,12 @@ const MainAppStack = () => (
       tabBarInactiveTintColor: 'gray',
     })}
   >
-    <Tab.Screen name="Home" component={Screen1} />
-    <Tab.Screen name="Checklist" component={Screen2} />
-    <Tab.Screen name="Add Trip" component={Screen3} />
-    <Tab.Screen name="Activities" component={Screen4} />
-    <Tab.Screen name="History" component={Screen5} />
+    <Tab.Screen name="Home" component={Home} options={{
+      headerShown: false
+    }} />
+    <Tab.Screen name="Checklist" component={ChecklistScreen} />
+    <Tab.Screen name="History" component={HistoryScreen} />
+    <Tab.Screen name="Profile" component={ProfileScreen} />
   </Tab.Navigator>
 );
 

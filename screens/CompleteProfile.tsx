@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Screen3 = () => {
+const CompleteProfile = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Screen 3</Text>
+      <Text style={styles.text}>Complete Profile Screen</Text>
     </View>
   );
 };
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Screen3;
+export default CompleteProfile;

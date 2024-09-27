@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { supabase } from './supabaseClient';
 
-const Screen5 = () => {
-  const [userId, setUserId] = useState<string | null>(null);
+const ProfileScreen = () => { const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -29,7 +28,7 @@ const Screen5 = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Screen 5</Text>
+      <Text style={styles.text}>ProfileScreen</Text>
       <Button title="Logout" onPress={handleLogout} />
       <View>
       <Text>{userId ? `User ID: ${userId}` : 'No user is logged in'}</Text>
@@ -50,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Screen5;
+export default ProfileScreen;
